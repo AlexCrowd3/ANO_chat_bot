@@ -3,6 +3,12 @@ import datetime
 import requests
 import telebot
 from telebot import types
+from flask import Flask
+app_flask = Flask(__name__)
+
+@app_flask.route('/')
+def dummy_endpoint():
+    return "Bot is running"
 
 # Настройки API сервиса
 API_URL = "https://alexcrowd3-anochat-f80f.twc1.net/add_user"
@@ -151,5 +157,9 @@ def handle_review_text(message):
     show_menu(message)
 
 if __name__ == '__main__':
-    logger.info("Бот запущен 🚀")
-    bot.polling(none_stop=True)
+    # Запуск бота в отдельном потоке
+    import threading
+    threading.Thread(target=bot.polling, kwargs=dict(none_stop=True)).start()
+    
+    # Запуск Flask на порту 8080
+    app_flask.run(host='0.0.0.0', port=8080)
