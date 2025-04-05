@@ -83,14 +83,14 @@ def show_menu(message):
     url = f"https://alexcrowd3-anochat-f80f.twc1.net?main_id={user_id}"
     
     markup = types.InlineKeyboardMarkup()
-    markup.add(types.InlineKeyboardButton("Открыть приложение", url=url))
+    markup.add(types.InlineKeyboardButton("Старт 🎮", url=url))
     
     # Отправляем фото + текст + кнопки
     with open('img/start_game.png', 'rb') as photo:
         bot.send_photo(
             message.chat.id,
             photo,
-            caption="Привет, для того чтобы открыть игру и провести время интересно, просто нажми кнопку 'Старт'🎮",
+            caption="Привет, для того чтобы открыть игру и провести время интересно, просто нажми кнопку \"Старт\"🎮",
             reply_markup=markup
         )
 
