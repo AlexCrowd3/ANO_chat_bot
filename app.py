@@ -84,7 +84,8 @@ def show_menu(message):
     
     bot.send_message(
         message.chat.id, 
-        "Привет, для того чтобы открыть игру и провести время интересно, просто нажми кнопку ниже)", 
+        photo=open('welcome.png', 'rb'),
+        text="Привет, для того чтобы открыть игру и провести время интересно, просто нажми кнопку ниже)", 
         reply_markup=markup
     )
 
@@ -130,7 +131,7 @@ def handle_review_choice(message):
             keyboard.add(types.KeyboardButton("/game"))
             keyboard.add(types.KeyboardButton("/about"))
             keyboard.add(types.KeyboardButton("/review"))
-            bot.send_message(chat_id, "Вы вернулись в главное меню", reply_markup=keyboard)
+            bot.send_message(chat_id, "Вы вернулись На экран с игрой", reply_markup=keyboard)
             del user_states[chat_id]
             show_menu(message)
 
