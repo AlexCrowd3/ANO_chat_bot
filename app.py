@@ -84,7 +84,7 @@ def show_menu(message):
     
     bot.send_message(
         message.chat.id, 
-        "Главное меню", 
+        "Привет, для того чтобы открыть игру и провести время интересно, просто нажми кнопку ниже)", 
         reply_markup=markup
     )
 
