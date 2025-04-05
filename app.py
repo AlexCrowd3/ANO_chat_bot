@@ -88,7 +88,7 @@ def show_menu(message):
     # Отправляем фото + текст + кнопки
     with open('img/welcome.png', 'rb') as photo:
         bot.send_photo(
-            message.chat_id,
+            message.chat.id,
             photo=open('img/ыефке_пфьу.png', 'rb'),
             caption="Привет, для того чтобы открыть игру и провести время интересно, просто нажми кнопку 'Старт'🎮",
             reply_markup=markup
