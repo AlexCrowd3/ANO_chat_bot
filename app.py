@@ -85,11 +85,14 @@ def show_menu(message):
     markup = types.InlineKeyboardMarkup()
     markup.add(types.InlineKeyboardButton("Открыть приложение", url=url))
     
-    bot.send_message(
-        message.chat.id, 
-        "Привет, для того чтобы открыть игру и провести время интересно, просто нажми кнопку ниже)", 
-        reply_markup=markup
-    )
+    # Отправляем фото + текст + кнопки
+    with open('img/welcome.png', 'rb') as photo:
+        bot.send_photo(
+            message.chat_id,
+            photo=open('img/ыефке_пфьу.png', 'rb'),
+            caption="Привет, для того чтобы открыть игру и провести время интересно, просто нажми кнопку 'Старт'🎮",
+            reply_markup=markup
+        )
 
 @bot.message_handler(commands=['about'])
 def show_about(message):
