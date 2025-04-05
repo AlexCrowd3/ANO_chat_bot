@@ -63,7 +63,7 @@ def start(message):
 
     # Создаем основную клавиатуру с эмодзи
     keyboard = types.ReplyKeyboardMarkup(resize_keyboard=True)
-    keyboard.add(types.KeyboardButton("/menu"))
+    keyboard.add(types.KeyboardButton("/game"))
     keyboard.add(types.KeyboardButton("/about"))
     keyboard.add(types.KeyboardButton("/review"))
     keyboard.add(types.KeyboardButton("/buy_n_coin"))
@@ -74,7 +74,7 @@ def start(message):
         reply_markup=keyboard
     )
 
-@bot.message_handler(commands=['menu'])
+@bot.message_handler(commands=['game'])
 def show_menu(message):
     user_id = message.from_user.id
     url = f"https://alexcrowd3-anochat-f80f.twc1.net?main_id={user_id}"
@@ -127,7 +127,7 @@ def handle_review_choice(message):
         elif message.text == "Назад 🔙":
             # Возвращаемся в меню
             keyboard = types.ReplyKeyboardMarkup(resize_keyboard=True)
-            keyboard.add(types.KeyboardButton("/menu"))
+            keyboard.add(types.KeyboardButton("/game"))
             keyboard.add(types.KeyboardButton("/about"))
             keyboard.add(types.KeyboardButton("/review"))
             bot.send_message(chat_id, "Вы вернулись в главное меню", reply_markup=keyboard)
